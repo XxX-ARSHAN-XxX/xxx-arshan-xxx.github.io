@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cogent Edge | Careers Built by humans, Future Built Faster</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#030305',
+                        glass: 'rgba(255, 255, 255, 0.02)',
+                        glassborder: 'rgba(255, 255, 255, 0.08)',
+                        accentPurple: '#a855f7',
+                        accentTeal: '#2dd4bf',
+                        accentNavy: '#1e3a8a',
+                        dangerRed: '#ef4444',
+                        mutedGold: '#d97706'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 10s ease-in-out infinite',
+                        'float-delayed': 'float 12s ease-in-out infinite 2s',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-20px) scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030305;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle Grid Background for Depth */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Dark Neon Glassmorphism */
+        .glass-card {
+            background: var(--glass, rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glassborder, rgba(255, 255, 255, 0.08));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ambient Glows */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Shimmering Text Gradient */
+        .text-shimmer {
+            background: linear-gradient(90deg, #a855f7, #2dd4bf, #a855f7);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        /* Timeline Styles */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 23px;
+            width: 2px;
+            background: linear-gradient(to bottom, #2dd4bf, rgba(45, 212, 191, 0.05));
+        }
+
+        /* Pricing Badge */
+        .popular-badge {
+            background: linear-gradient(135deg, #a855f7, #2dd4bf);
+            color: white;
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accentPurple selection:text-white relative">
+
+    <div class="bg-grid"></div>
+
+    <div class="glow-orb bg-accentNavy w-[600px] h-[600px] top-[-100px] left-[-200px] animate-float"></div>
+    <div class="glow-orb bg-accentPurple w-[500px] h-[500px] top-[30%] right-[-150px] animate-float-delayed"></div>
+    <div class="glow-orb bg-accentTeal w-[400px] h-[400px] bottom-[10%] left-[10%] opacity-10 animate-float"></div>
+
+    <nav class="w-full fixed top-0 z-50 glass-card border-x-0 border-t-0 bg-base/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-tight flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-accentTeal"></i>
+                Cogent <span class="text-accentTeal font-mono font-normal">Edge</span>
+            </div>
+            <a href="#" class="px-6 py-2 text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-colors duration-300">Login</a>
+        </div>
+    </nav>
+
+    <header class="relative pt-48 pb-20 md:pt-56 md:pb-24 px-6 overflow-hidden flex flex-col items-center justify-center min-h-[90vh]">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full glass-card font-mono text-xs text-gray-300 tracking-widest uppercase border-white/10">
+                <span class="w-2 h-2 rounded-full bg-accentTeal animate-pulse"></span>
+                A Cogent Infotech Company
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
+                Careers Built <span class="text-shimmer">by humans,</span><br>
+                Future Built <span class="text-shimmer">Faster.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Job hunting is the loneliest grind. We walk beside you. We apply for roles on your behalf, prep you for every interview, and give you back the hours you spent alone at midnight refreshing your inbox.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#assessments" class="w-full sm:w-auto px-8 py-4 bg-white text-base text-black font-semibold rounded-full hover:bg-gray-200 transition transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                    Free Assessment Tools <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 glass-card text-white font-medium rounded-full hover:border-white/30 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-tags text-accentTeal"></i> Explore Plans
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-white/5 max-w-4xl mx-auto backdrop-blur-sm bg-white/[0.01]">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-accentTeal font-mono mb-1">15+</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider font-mono">Years Exp</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-accentPurple font-mono mb-1">1,650+</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider font-mono">Students Placed</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-mutedGold font-mono mb-1">3,500+</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider font-mono">Offers Made</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-white font-mono mb-1">82K</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider font-mono">Avg Salary</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problem" class="py-24 px-6 relative border-t border-glassborder/50 bg-[#040406]/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="font-mono text-dangerRed/80 text-sm tracking-widest uppercase block mb-3"><i class="fa-solid fa-triangle-exclamation"></i> The Real Problem</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">The job search has become a full-time job.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Most candidates are doing it entirely alone — burning hours, confidence, and time.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 border-dangerRed/10 hover:border-dangerRed/30 reveal group">
+                    <div class="font-mono text-4xl text-dangerRed/30 font-bold mb-4 group-hover:text-dangerRed/60 transition-colors">01</div>
+                    <h3 class="text-xl font-bold mb-3">Applying but not hearing back</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Your resume may not align with the role. Your LinkedIn may not include the right keywords. Your projects may not clearly demonstrate your technical ability.</p>
+                </div>
+                <div class="glass-card p-8 border-dangerRed/10 hover:border-dangerRed/30 reveal delay-100 group">
+                    <div class="font-mono text-4xl text-dangerRed/30 font-bold mb-4 group-hover:text-dangerRed/60 transition-colors">02</div>
+                    <h3 class="text-xl font-bold mb-3">Getting interviews but not converting</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You may be struggling to explain your projects, handle technical questions, structure behavioral answers, or communicate your value clearly under pressure.</p>
+                </div>
+                <div class="glass-card p-8 border-dangerRed/10 hover:border-dangerRed/30 reveal delay-200 group">
+                    <div class="font-mono text-4xl text-dangerRed/30 font-bold mb-4 group-hover:text-dangerRed/60 transition-colors">03</div>
+                    <h3 class="text-xl font-bold mb-3">Too many tools, still feeling alone</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">You are using resume checkers, LinkedIn tips, YouTube prep videos — but without a human in your corner, it still feels like guessing in the dark.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center md:text-left md:flex justify-between items-end reveal">
+                <div class="max-w-3xl">
+                    <span class="font-mono text-accentTeal text-sm tracking-widest uppercase block mb-3"><i class="fa-solid fa-users"></i> Not Another Tool</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">A team in your corner.</h2>
+                    <p class="text-gray-400">Cogent Career Accelerator combines human-reviewed career services, interview preparation, role-matched application support, and focused micro-upskilling.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-10 flex flex-col h-full reveal group border-accentTeal/20 hover:border-accentTeal/40">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-accentTeal/10 flex items-center justify-center border border-accentTeal/20">
+                            <i class="fa-solid fa-rocket text-2xl text-accentTeal"></i>
+                        </div>
+                        <div class="font-mono text-4xl text-white/5 font-bold">01</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Apply <span class="block text-accentTeal font-mono text-xs mt-1 uppercase opacity-70">Pillar 01</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 mt-2">
+                        Application support for eligible candidates. We help identify relevant roles, tailor application materials, and reduce the repetitive work that drains time and confidence.
+                    </p>
+                </div>
+
+                <div class="glass-card p-10 flex flex-col h-full border-accentPurple/20 hover:border-accentPurple/40 reveal delay-100 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-accentPurple/10 flex items-center justify-center border border-accentPurple/20">
+                            <i class="fa-solid fa-bullseye text-2xl text-accentPurple"></i>
+                        </div>
+                        <div class="font-mono text-4xl text-white/5 font-bold">02</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Prepare <span class="block text-accentPurple font-mono text-xs mt-1 uppercase opacity-70">Pillar 02</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 mt-2">
+                        Resume, LinkedIn, GitHub, technical test feedback, mock interviews, behavioral prep, and role-specific interview practice — with human reviewers, not automated templates.
+                    </p>
+                </div>
+
+                <div class="glass-card p-10 flex flex-col h-full border-mutedGold/20 hover:border-mutedGold/40 reveal delay-200 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-mutedGold/10 flex items-center justify-center border border-mutedGold/20">
+                            <i class="fa-solid fa-bolt text-2xl text-mutedGold"></i>
+                        </div>
+                        <div class="font-mono text-4xl text-white/5 font-bold">03</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Upskill <span class="block text-mutedGold font-mono text-xs mt-1 uppercase opacity-70">Pillar 03</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 mt-2">
+                        Short, focused micro-courses in high-demand areas — AI, cybersecurity, LLM applications, RAG, graph databases, and Excel with AI. Close the gap that's costing you the role.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-24 px-6 relative bg-[#040406]/80 backdrop-blur-sm border-y border-glassborder/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-1.5 mb-4 rounded-full bg-accentTeal/10 text-accentTeal border border-accentTeal/20 font-mono text-xs tracking-widest uppercase">The Process</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Five Steps.</h2>
+                <p class="text-gray-400 leading-relaxed text-lg">Tell us where you are. We'll help you get where you need to be. The goal is simple: to help you show up as a clearer, stronger, and better-prepared candidate.</p>
+            </div>
+
+            <div class="relative timeline-line pl-12 space-y-8 font-sans max-w-2xl mx-auto">
+                <div class="relative glass-card p-6 reveal hover:border-accentTeal/30">
+                    <div class="absolute -left-[35px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-base border-2 border-accentTeal z-10 shadow-[0_0_10px_rgba(45,212,191,0.3)]"></div>
+                    <div class="font-mono text-xs text-accentTeal mb-1 tracking-widest">STEP 1</div>
+                    <h4 class="text-lg font-bold text-white">Tell us your current profile and goal</h4>
+                    <p class="text-sm text-gray-400 mt-1">Share your resume, LinkedIn, GitHub, target roles, and biggest job-search blocker.</p>
+                </div>
+                
+                <div class="relative glass-card p-6 reveal hover:border-accentTeal/30">
+                    <div class="absolute -left-[35px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-base border-2 border-accentTeal z-10 shadow-[0_0_10px_rgba(45,212,191,0.3)]"></div>
+                    <div class="font-mono text-xs text-accentTeal mb-1 tracking-widest">STEP 2</div>
+                    <h4 class="text-lg font-bold text-white">Get a career-readiness view</h4>
+                    <p class="text-sm text-gray-400 mt-1">We review where your resume, LinkedIn, GitHub, skills, and interview prep stand today.</p>
+                </div>
+
+                <div class="relative glass-card p-6 reveal hover:border-accentTeal/30">
+                    <div class="absolute -left-[35px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-base border-2 border-accentTeal z-10 shadow-[0_0_10px_rgba(45,212,191,0.3)]"></div>
+                    <div class="font-mono text-xs text-accentTeal mb-1 tracking-widest">STEP 3</div>
+                    <h4 class="text-lg font-bold text-white">Choose the right support path</h4>
+                    <p class="text-sm text-gray-400 mt-1">Pick career services, micro-upskilling, application support, or a combined plan.</p>
+                </div>
+
+                <div class="relative glass-card p-6 reveal hover:border-accentTeal/30">
+                    <div class="absolute -left-[35px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-base border-2 border-accentTeal z-10 shadow-[0_0_10px_rgba(45,212,191,0.3)]"></div>
+                    <div class="font-mono text-xs text-accentTeal mb-1 tracking-widest">STEP 4</div>
+                    <h4 class="text-lg font-bold text-white">Work with human reviewers and coaches</h4>
+                    <p class="text-sm text-gray-400 mt-1">Your profile and preparation are reviewed by people, not automated templates.</p>
+                </div>
+
+                <div class="relative glass-card p-6 reveal hover:border-accentPurple/30 border-accentPurple/20 bg-accentPurple/5">
+                    <div class="absolute -left-[35px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-accentPurple z-10 shadow-[0_0_15px_#a855f7]"></div>
+                    <div class="font-mono text-xs text-accentPurple mb-1 tracking-widest">STEP 5</div>
+                    <h4 class="text-lg font-bold text-white">Keep improving through the process</h4>
+                    <p class="text-sm text-gray-300 mt-1">As your target roles become clearer, your materials and interview stories get refined.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal">
+                <p class="mb-6 text-gray-300">Ready to find out what's holding your career profile back?</p>
+                <a href="#assessments" class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition">Get Free Career Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="font-mono text-mutedGold text-sm tracking-widest uppercase block mb-3"><i class="fa-solid fa-tags"></i> Pricing</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Choose the support you need.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Flexible plans and expert prep. Honest pricing. No hidden fees. Build the career support plan that fits your goal.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                
+                <div class="glass-card p-8 reveal">
+                    <h3 class="text-2xl font-bold mb-2">Interview Accelerator</h3>
+                    <p class="text-sm text-gray-400 mb-6 h-10">For skilled coders not getting interview invites.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">$499</span>
+                    </div>
+                    <a href="#" class="block w-full py-3 text-center glass-card hover:bg-white/10 transition rounded-lg text-sm font-semibold mb-8 border-white/10">Start Getting Calls &rarr;</a>
+                    
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div><strong class="text-white block font-mono text-xs mb-1">RESUME / CV</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 3 human rewrites (Java/Data keywords)</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">COVER LETTER</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 1 custom aligned letter</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">LINKEDIN</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Profile overhaul & keyword map</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">GITHUB</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Repo video audit + cleanup notes</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">TECH TESTS</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 1 senior-graded async test</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">BEHAVIORAL</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 60-min story session + STAR frameworks</div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 reveal delay-100 border-accentTeal/50 relative transform scale-105 shadow-[0_0_40px_rgba(45,212,191,0.1)] bg-white/[0.03]">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 popular-badge rounded-full text-xs font-bold tracking-wider">MOST POPULAR</div>
+                    <h3 class="text-2xl font-bold mb-2">Offer Builder</h3>
+                    <p class="text-sm text-gray-400 mb-6 h-10">For candidates getting interviews but not closing.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">$899</span>
+                    </div>
+                    <a href="#" class="block w-full py-3 text-center bg-white text-black hover:bg-gray-200 transition rounded-lg text-sm font-semibold mb-8">Build My Strategy &rarr;</a>
+                    
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div><strong class="text-white block font-mono text-xs mb-1">RESUME / CV</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Targeted rewrite tailored to 1 JD</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">COVER LETTER</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 5 custom drafts</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">LINKEDIN</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Recruiter magnet setup</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">GITHUB</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Repo upgrade plan + rewritten README</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">TECH TESTS</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 2 async tests + gap notes</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">MOCK INTERVIEWS</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 2 live sessions</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">BEHAVIORAL</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Target-role story tuning + offer prep</div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 reveal delay-200">
+                    <h3 class="text-2xl font-bold mb-2">Offer Accelerator</h3>
+                    <p class="text-sm text-gray-400 mb-6 h-10">For competitive roles and high-pressure loops.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">$1300</span>
+                    </div>
+                    <a href="#" class="block w-full py-3 text-center glass-card hover:bg-white/10 transition rounded-lg text-sm font-semibold mb-8 border-white/10">Prepare For Dream Role &rarr;</a>
+                    
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div><strong class="text-white block font-mono text-xs mb-1">RESUME / CV</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 5 targeted resumes (30-day tuning)</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">COVER LETTER</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Strategy suite (Startup/Corp/Remote)</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">LINKEDIN</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Network validation + SSI score boost</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">GITHUB</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Codebase deep dive to pass EM scrutiny</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">TECH TESTS</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 3 async tests + scorecard</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">MOCK INTERVIEWS</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> 2 live sessions + company drill</div>
+                        <div><strong class="text-white block font-mono text-xs mb-1">BEHAVIORAL</strong> <i class="fa-solid fa-check text-accentTeal mr-1"></i> Amazon LPs prep + Negotiation script</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="assessments" class="py-24 px-6 relative bg-[#040406]/80 backdrop-blur-sm border-t border-glassborder/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center reveal">
+                <span class="font-mono text-accentTeal text-sm tracking-widest uppercase block mb-3"><i class="fa-solid fa-screwdriver-wrench"></i> Free Assessment Tools</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Find your career gap. Close it faster.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Use our free tools to understand what is blocking your next interview or offer — then choose focused support that matches your actual gap.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 hover:border-accentTeal/30 transition-all reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-chart-bar text-2xl text-accentTeal"></i>
+                        <span class="font-mono text-xs text-gray-500">3–5 min</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Career Readiness Score</h3>
+                    <p class="text-sm text-gray-400 mb-6">Check how ready your profile is for your next tech role across resume, LinkedIn, GitHub, interview skills, and application strategy.</p>
+                    <div class="p-4 bg-white/5 rounded border border-white/5 text-xs text-gray-300 font-mono mb-6">
+                        <span class="text-accentTeal block mb-1">EXAMPLE RESULT</span>
+                        "Score: 64/100 — You have tech potential, but resume & GitHub need stronger alignment before aggressive applying."
+                    </div>
+                    <a href="#" class="text-accentTeal hover:text-white text-sm font-semibold transition">Check My Career Score &rarr;</a>
+                </div>
+
+                <div class="glass-card p-8 hover:border-accentPurple/30 transition-all reveal delay-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-magnifying-glass text-2xl text-accentPurple"></i>
+                        <span class="font-mono text-xs text-gray-500">3–5 min</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Resume Match Checker</h3>
+                    <p class="text-sm text-gray-400 mb-6">Check whether your resume matches the job description you are targeting and discover what keywords, skills, and signals are missing.</p>
+                    <div class="p-4 bg-white/5 rounded border border-white/5 text-xs text-gray-300 font-mono mb-6">
+                        <span class="text-accentPurple block mb-1">EXAMPLE RESULT</span>
+                        "Match: 52/100 — Resume has relevant skills, but project bullets need better alignment with this specific JD."
+                    </div>
+                    <a href="#" class="text-accentPurple hover:text-white text-sm font-semibold transition">Check My Resume Match &rarr;</a>
+                </div>
+
+                <div class="glass-card p-8 hover:border-mutedGold/30 transition-all reveal delay-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-phone-slash text-2xl text-mutedGold"></i>
+                        <span class="font-mono text-xs text-gray-500">2–4 min</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Interview Call Diagnosis</h3>
+                    <p class="text-sm text-gray-400 mb-6">Applying but not hearing back? Find out whether your resume, LinkedIn, GitHub, job targeting, or application strategy is holding you back.</p>
+                    <div class="p-4 bg-white/5 rounded border border-white/5 text-xs text-gray-300 font-mono mb-6">
+                        <span class="text-mutedGold block mb-1">EXAMPLE RESULT</span>
+                        "Diagnosis: Visibility problem — Resume isn't the only issue. LinkedIn & GitHub do not support your application."
+                    </div>
+                    <a href="#" class="text-mutedGold hover:text-white text-sm font-semibold transition">Find Out Why I'm Not Getting Calls &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto reveal">
+            <div class="flex flex-col items-center mb-12">
+                <i class="fa-solid fa-graduation-cap text-3xl text-white/10 mb-4"></i>
+                <h2 class="text-center font-mono text-sm tracking-widest uppercase text-gray-500 mb-2">Candidate Outcomes</h2>
+                <h3 class="text-3xl font-bold text-center">Better assets. Stronger interviews. Clearer confidence.</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 relative flex flex-col border-white/10 hover:border-accentTeal/30 group">
+                    <h4 class="font-bold text-lg mb-4">Story 01: To a clearer profile</h4>
+                    <div class="mb-4">
+                        <span class="text-xs font-mono text-dangerRed mb-1 block">BEFORE</span>
+                        <p class="text-sm text-gray-400">Skills present, but no recruiter attention. Resume structure, LinkedIn, and GitHub presentation were unclear.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-white/5">
+                        <span class="text-xs font-mono text-accentTeal mb-1 block">AFTER</span>
+                        <p class="text-sm text-white">Clearer profile across all surfaces — skills easier to read, roles better targeted, and recruiter attention increased.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 relative flex flex-col border-white/10 hover:border-accentPurple/30 group">
+                    <h4 class="font-bold text-lg mb-4">Story 02: To project confidence</h4>
+                    <div class="mb-4">
+                        <span class="text-xs font-mono text-dangerRed mb-1 block">BEFORE</span>
+                        <p class="text-sm text-gray-400">GitHub existed but the candidate struggled to explain architecture, features, and tech decisions during interviews.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-white/5">
+                        <span class="text-xs font-mono text-accentPurple mb-1 block">AFTER</span>
+                        <p class="text-sm text-white">Could explain the problem, solution, tech stack, trade-offs, and roadmap confidently and with structure.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 relative flex flex-col border-white/10 hover:border-mutedGold/30 group">
+                    <h4 class="font-bold text-lg mb-4">Story 03: To stronger readiness</h4>
+                    <div class="mb-4">
+                        <span class="text-xs font-mono text-dangerRed mb-1 block">BEFORE</span>
+                        <p class="text-sm text-gray-400">Getting interviews but not communicating clearly in final rounds. Technical and behavioral answers underprepared.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-white/5">
+                        <span class="text-xs font-mono text-mutedGold mb-1 block">AFTER</span>
+                        <p class="text-sm text-white">Stronger answers, clearer examples, and a structured preparation plan ready for high-pressure final rounds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-glassborder py-20 px-6 bg-[#020203] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+        <div class="max-w-7xl mx-auto text-center reveal relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">You don't have to do this alone.</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">Get a free career audit and let Cogent review where your profile stands today. No commitment required.</p>
+            
+            <a href="#assessments" class="inline-flex px-8 py-4 bg-white text-base text-black font-semibold rounded-full hover:bg-gray-200 transition transform hover:scale-105 active:scale-95 mb-16 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                Get a Free Career Audit
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-8 font-mono text-xs text-gray-400 mb-12">
+                <a href="#" class="hover:text-white transition">Services</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="#assessments" class="hover:text-white transition">Free Tools</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="#" class="hover:text-white transition">Outcomes</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="#" class="hover:text-white transition">FAQ</a>
+            </div>
+            
+            <div class="text-xs text-gray-600 font-mono border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-accentTeal opacity-50"></i>
+                    &copy; 2026 Cogent Career Accelerator. A Cogent Infotech Division.
+                </div>
+                <div class="flex gap-4 opacity-50">
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 50; 
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); 
+        });
+    </script>
+</body>
+</html>
