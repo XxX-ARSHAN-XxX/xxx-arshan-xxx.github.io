@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cogent Edge | Careers Built by humans, Future Built Faster</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#000000',
+                        surface: '#0a0a0a',
+                        surfaceHover: '#111111',
+                        accentPurple: '#a855f7',
+                        accentTeal: '#2dd4bf',
+                        textMuted: '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #ededed;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ─── PREMIUM TYPOGRAPHY & GRADIENTS ─── */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #a855f7 0%, #2dd4bf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ─── PREMIUM BENTO CARDS ─── */
+        .bento-card {
+            background: linear-gradient(145deg, rgba(20,20,20,0.8) 0%, rgba(10,10,10,0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 10px 40px -10px rgba(0,0,0,0.8);
+        }
+
+        /* Subtle Inner Glow on Hover */
+        .bento-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.04), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .bento-card:hover::after {
+            opacity: 1;
+        }
+
+        /* ─── AMBIENT BACKGROUND GLOWS ─── */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ─── BUTTONS ─── */
+        .btn-premium {
+            background: #ffffff;
+            color: #000000;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(255,255,255,0.1);
+        }
+        .btn-premium:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px 0 rgba(255,255,255,0.15);
+        }
+        
+        .btn-outline {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #ffffff;
+            border-radius: 999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* ─── REVEAL ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+    </style>
+</head>
+<body class="selection:bg-accentPurple/30 selection:text-white">
+
+    <div class="ambient-glow bg-accentTeal w-[500px] h-[500px] top-[-100px] left-[-200px]"></div>
+    <div class="ambient-glow bg-accentPurple w-[600px] h-[600px] top-[40%] right-[-300px]"></div>
+
+    <nav class="w-full fixed top-0 z-50 bg-[#000000]/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-accentPurple to-accentTeal flex items-center justify-center">
+                    <i class="fa-solid fa-layer-group text-[10px] text-white"></i>
+                </div>
+                Cogent <span class="font-normal text-textMuted">Edge</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-textMuted">
+                <a href="#problem" class="hover:text-white transition">The Problem</a>
+                <a href="#solution" class="hover:text-white transition">Pillars</a>
+                <a href="#process" class="hover:text-white transition">Process</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+            </div>
+            <a href="#" class="px-5 py-2 text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-colors duration-300">Sign In</a>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-20 md:pt-52 md:pb-24 px-6 flex flex-col items-center justify-center min-h-[90vh]">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-white/10 bg-white/[0.02] font-mono text-[11px] text-textMuted tracking-widest uppercase">
+                A Cogent Infotech Company
+            </div>
+            
+            <h1 class="text-5xl md:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-8">
+                <span class="text-gradient">Careers Built</span> by humans,<br>
+                <span class="text-gradient">Future Built</span> Faster.
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textMuted mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                Job hunting is the loneliest grind. We walk beside you. We apply for roles on your behalf, prep you for every interview, and give you back the hours you spent alone at midnight refreshing your inbox.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                <a href="#assessments" class="btn-premium px-8 py-3.5 w-full sm:w-auto flex items-center justify-center gap-2">
+                    Get Your Edge <span class="opacity-50 text-xs font-mono ml-1">(Zero Upfront)</span>
+                </a>
+                <a href="#pricing" class="btn-outline px-8 py-3.5 w-full sm:w-auto">
+                    Explore Pricing Plans
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/5 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-semibold text-white mb-1 tracking-tight">15+</div>
+                    <div class="text-[10px] text-textMuted uppercase tracking-widest font-mono">Years Exp</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-semibold text-white mb-1 tracking-tight">1,650+</div>
+                    <div class="text-[10px] text-textMuted uppercase tracking-widest font-mono">Students Placed</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-semibold text-white mb-1 tracking-tight">3,500+</div>
+                    <div class="text-[10px] text-textMuted uppercase tracking-widest font-mono">Offers Made</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-semibold text-white mb-1 tracking-tight">82K</div>
+                    <div class="text-[10px] text-textMuted uppercase tracking-widest font-mono">Avg Salary</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problem" class="py-24 px-6 relative border-t border-white/5 bg-[#020202]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">The job search is broken.</h2>
+                    <p class="text-textMuted text-lg font-light">Most candidates are doing it entirely alone — burning hours, confidence, and time.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="bento-card col-span-1 md:col-span-8 p-10 md:p-12 reveal">
+                    <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-paper-plane text-white/70"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 tracking-tight">Applying but not hearing back</h3>
+                    <p class="text-textMuted leading-relaxed max-w-xl">
+                        Your resume may not align with the role. Your LinkedIn may not include the right keywords. Your projects may not clearly demonstrate your technical ability. AI algorithms filter you out before a human ever looks.
+                    </p>
+                </div>
+
+                <div class="bento-card col-span-1 md:col-span-4 p-10 reveal delay-100">
+                    <div class="font-mono text-4xl text-white/10 font-bold mb-4">02</div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Getting interviews, not converting</h3>
+                    <p class="text-textMuted text-sm leading-relaxed">
+                        Struggling to explain your projects, handle technical questions, or communicate your value clearly under pressure.
+                    </p>
+                </div>
+
+                <div class="bento-card col-span-1 md:col-span-12 p-10 flex flex-col md:flex-row items-center gap-8 reveal delay-200">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-accentPurple/20 to-accentTeal/20 border border-white/10 flex items-center justify-center">
+                        <i class="fa-solid fa-triangle-exclamation text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 tracking-tight">Too many tools, still feeling alone</h3>
+                        <p class="text-textMuted text-sm leading-relaxed max-w-3xl">
+                            You are using resume checkers, LinkedIn tips, YouTube prep videos — but without a human in your corner, it still feels like guessing in the dark.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="font-mono text-xs text-textMuted tracking-widest uppercase block mb-4 border border-white/10 w-fit mx-auto px-3 py-1 rounded-full">Not Another Tool</span>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">A team in your <span class="text-gradient-accent">corner.</span></h2>
+                <p class="text-textMuted text-lg max-w-2xl mx-auto font-light">Cogent Career Accelerator combines human-reviewed career services, interview preparation, role-matched application support, and focused micro-upskilling.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bento-card p-10 flex flex-col h-full reveal">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-2xl font-bold tracking-tight">Apply</h3>
+                        <span class="font-mono text-[10px] text-white/50 uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">Pillar 01</span>
+                    </div>
+                    <p class="text-textMuted text-sm leading-relaxed mb-8 flex-grow">
+                        Application support for eligible candidates. We help identify relevant roles, tailor application materials, and reduce the repetitive work that drains time and confidence.
+                    </p>
+                    <div class="pt-6 border-t border-white/5 text-xs text-white/70 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-check text-accentTeal"></i> Human reviewers, not automated templates
+                    </div>
+                </div>
+
+                <div class="bento-card p-10 flex flex-col h-full reveal delay-100">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-2xl font-bold tracking-tight">Prepare</h3>
+                        <span class="font-mono text-[10px] text-white/50 uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">Pillar 02</span>
+                    </div>
+                    <p class="text-textMuted text-sm leading-relaxed mb-8 flex-grow">
+                        Resume, LinkedIn, GitHub, technical test feedback, mock interviews, behavioral prep, and role-specific interview practice.
+                    </p>
+                    <div class="pt-6 border-t border-white/5 text-xs text-white/70 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-check text-accentPurple"></i> Featuring the Code-Ready 5RT Framework
+                    </div>
+                </div>
+
+                <div class="bento-card p-10 flex flex-col h-full reveal delay-200">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-2xl font-bold tracking-tight">Upskill</h3>
+                        <span class="font-mono text-[10px] text-white/50 uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full">Pillar 03</span>
+                    </div>
+                    <p class="text-textMuted text-sm leading-relaxed mb-8 flex-grow">
+                        Short, focused micro-courses in high-demand areas — AI, cybersecurity, LLM applications, RAG, graph databases. Close the gap.
+                    </p>
+                    <div class="pt-6 border-t border-white/5 text-xs text-white/70 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-check text-mutedGold"></i> 4–24 hour targeted skill injections
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-24 px-6 relative border-y border-white/5 bg-[#020202]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Five Steps.</h2>
+                <p class="text-textMuted text-lg font-light">Tell us where you are. We'll help you get where you need to be.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bento-card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 reveal">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-mono text-sm text-white/50 flex-shrink-0">01</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Tell us your current profile and goal</h4>
+                        <p class="text-sm text-textMuted">Share your resume, LinkedIn, GitHub, target roles, and biggest job-search blocker.</p>
+                    </div>
+                </div>
+                
+                <div class="bento-card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 reveal delay-100">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-mono text-sm text-white/50 flex-shrink-0">02</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Get a career-readiness view</h4>
+                        <p class="text-sm text-textMuted">We review where your resume, LinkedIn, GitHub, skills, and interview prep stand today.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 reveal delay-200">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-mono text-sm text-white/50 flex-shrink-0">03</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Choose the right support path</h4>
+                        <p class="text-sm text-textMuted">Pick career services, micro-upskilling, application support, or a combined plan.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 reveal">
+                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center font-mono text-sm text-white/50 flex-shrink-0">04</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Work with human reviewers</h4>
+                        <p class="text-sm text-textMuted">Your profile and preparation are reviewed by people, not automated templates.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 reveal border-white/20 bg-white/[0.02]">
+                    <div class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center font-mono text-sm font-bold flex-shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.2)]">05</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Keep improving through the process</h4>
+                        <p class="text-sm text-textMuted">As your target roles become clearer, your materials and interview stories get refined.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Honest Pricing.</h2>
+                <p class="text-textMuted max-w-2xl mx-auto font-light text-lg">Flexible plans and expert prep. No hidden fees. Build the career support plan that fits your goal.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-end">
+                <div class="bento-card p-8 reveal">
+                    <h3 class="text-xl font-bold mb-2">Interview Accelerator</h3>
+                    <p class="text-sm text-textMuted mb-6 h-10">For skilled coders not getting interview invites.</p>
+                    <div class="mb-8 font-mono tracking-tight"><span class="text-4xl font-bold text-white">$499</span></div>
+                    
+                    <div class="space-y-4 text-sm text-gray-300 mb-8">
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Resume/CV:</strong> 3 human rewrites</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">LinkedIn:</strong> Profile overhaul & keywords</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">GitHub:</strong> Repo video audit</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Behavioral:</strong> 60-min story session</div></div>
+                    </div>
+                    <a href="#" class="btn-outline block w-full py-3 text-center text-sm">Start Getting Calls</a>
+                </div>
+
+                <div class="bento-card p-8 reveal delay-100 border-white/20 bg-white/[0.04] relative shadow-[0_0_40px_rgba(255,255,255,0.05)] pb-10">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-accentPurple to-accentTeal"></div>
+                    <div class="inline-block px-3 py-1 bg-white text-black text-[10px] font-bold tracking-widest uppercase rounded-full mb-4">Most Popular</div>
+                    <h3 class="text-xl font-bold mb-2">Offer Builder</h3>
+                    <p class="text-sm text-textMuted mb-6 h-10">For candidates getting interviews but not closing.</p>
+                    <div class="mb-8 font-mono tracking-tight"><span class="text-5xl font-bold text-white">$899</span></div>
+                    
+                    <div class="space-y-4 text-sm text-gray-300 mb-8">
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Resume/CV:</strong> Targeted rewrite to 1 JD</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Cover Letter:</strong> 5 custom drafts</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">GitHub:</strong> Repo upgrade + README</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Interviews:</strong> 2 live mock sessions</div></div>
+                    </div>
+                    <a href="#" class="btn-premium block w-full py-3.5 text-center text-sm">Build My Strategy</a>
+                </div>
+
+                <div class="bento-card p-8 reveal delay-200">
+                    <h3 class="text-xl font-bold mb-2">Offer Accelerator</h3>
+                    <p class="text-sm text-textMuted mb-6 h-10">For competitive roles and high-pressure loops.</p>
+                    <div class="mb-8 font-mono tracking-tight"><span class="text-4xl font-bold text-white">$1300</span></div>
+                    
+                    <div class="space-y-4 text-sm text-gray-300 mb-8">
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Resume/CV:</strong> 5 targeted resumes</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">LinkedIn:</strong> SSI score boost</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">GitHub:</strong> Codebase deep dive</div></div>
+                        <div class="flex items-start gap-3"><i class="fa-solid fa-check text-white/50 mt-1 text-[10px]"></i> <div><strong class="text-white font-medium">Behavioral:</strong> Amazon LPs prep</div></div>
+                    </div>
+                    <a href="#" class="btn-outline block w-full py-3 text-center text-sm">Prepare For Dream Role</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assessments" class="py-24 px-6 relative border-t border-white/5 bg-[#020202]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Free Assessment Tools</h2>
+                <p class="text-textMuted max-w-2xl mx-auto font-light text-lg">Find your career gap. Close it faster.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bento-card p-8 reveal">
+                    <div class="font-mono text-[10px] text-white/60 mb-4 uppercase tracking-widest border border-white/10 w-fit px-3 py-1 rounded-full">3–5 min</div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Career Readiness Score</h3>
+                    <p class="text-sm text-textMuted mb-8 leading-relaxed">Check how ready your profile is across resume, LinkedIn, GitHub, interview skills, and application strategy.</p>
+                    <a href="#" class="text-white hover:text-white/70 text-sm font-medium transition flex items-center gap-2">Check My Score <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+
+                <div class="bento-card p-8 reveal delay-100">
+                    <div class="font-mono text-[10px] text-white/60 mb-4 uppercase tracking-widest border border-white/10 w-fit px-3 py-1 rounded-full">3–5 min</div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Resume Match Checker</h3>
+                    <p class="text-sm text-textMuted mb-8 leading-relaxed">Check whether your resume matches the job description you are targeting and discover missing keywords.</p>
+                    <a href="#" class="text-white hover:text-white/70 text-sm font-medium transition flex items-center gap-2">Check Resume Match <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+
+                <div class="bento-card p-8 reveal delay-200">
+                    <div class="font-mono text-[10px] text-white/60 mb-4 uppercase tracking-widest border border-white/10 w-fit px-3 py-1 rounded-full">2–4 min</div>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Interview Diagnosis</h3>
+                    <p class="text-sm text-textMuted mb-8 leading-relaxed">Applying but not hearing back? Find out whether your resume, LinkedIn, or strategy is holding you back.</p>
+                    <a href="#" class="text-white hover:text-white/70 text-sm font-medium transition flex items-center gap-2">Find Out Why <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-24 px-6 bg-[#000000] relative text-center">
+        <div class="max-w-7xl mx-auto reveal">
+            <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight">You don't have to do this alone.</h2>
+            <p class="text-textMuted mb-12 max-w-xl mx-auto font-light text-lg">Get a free career audit and let Cogent review where your profile stands today. No commitment required.</p>
+            
+            <a href="#assessments" class="btn-premium px-10 py-4 inline-flex items-center gap-2 mb-20 text-sm md:text-base">
+                Get a Free Career Audit
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-8 text-sm text-textMuted mb-12 font-medium">
+                <a href="#" class="hover:text-white transition">Services</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#assessments" class="hover:text-white transition">Free Tools</a>
+                <a href="#" class="hover:text-white transition">FAQ</a>
+            </div>
+            
+            <div class="text-xs text-textMuted border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 rounded bg-gradient-to-br from-accentPurple to-accentTeal flex items-center justify-center opacity-70">
+                        <i class="fa-solid fa-layer-group text-[6px] text-white"></i>
+                    </div>
+                    &copy; 2026 Cogent Edge. A Cogent Infotech Division.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Reveal
+            const reveals = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) reveal.classList.add("active");
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); 
+
+            // Bento Card Mouse Follow Glow
+            document.querySelectorAll('.bento-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
